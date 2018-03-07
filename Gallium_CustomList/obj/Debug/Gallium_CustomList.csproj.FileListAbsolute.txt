@@ -1,1 +1,6 @@
 c:\users\vrono\documents\visual studio 2015\Projects\Gallium_CustomList\Gallium_CustomList\bin\Debug\Gallium_CustomList.exe.config
+c:\users\vrono\documents\visual studio 2015\Projects\Gallium_CustomList\Gallium_CustomList\bin\Debug\Gallium_CustomList.exe
+c:\users\vrono\documents\visual studio 2015\Projects\Gallium_CustomList\Gallium_CustomList\bin\Debug\Gallium_CustomList.pdb
+c:\users\vrono\documents\visual studio 2015\Projects\Gallium_CustomList\Gallium_CustomList\obj\Debug\Gallium_CustomList.csprojResolveAssemblyReference.cache
+c:\users\vrono\documents\visual studio 2015\Projects\Gallium_CustomList\Gallium_CustomList\obj\Debug\Gallium_CustomList.exe
+c:\users\vrono\documents\visual studio 2015\Projects\Gallium_CustomList\Gallium_CustomList\obj\Debug\Gallium_CustomList.pdb

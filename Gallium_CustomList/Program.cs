@@ -10,6 +10,7 @@ namespace Gallium_CustomList
     {
         static void Main(string[] args)
         {
+            CustomList<int> test = new CustomList<int>();
         }
     }
 }
