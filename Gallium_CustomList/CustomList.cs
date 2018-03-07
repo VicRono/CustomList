@@ -12,27 +12,50 @@ namespace Gallium_CustomList
 
         // member variables
         int count;
-        private object expected;
-        private object value;
-        CustomList<T> list = new CustomList<T>();
+        int capacity;
+        T[] array;
 
         public int Count
         {
             get { return count; }
         }
 
-   
-        // indexer property
-        public void Add(int T)
-       
+        public T this[int i]
         {
-            object get = null;
-            get { return list[T]; }
-            object set = null;
-            set { list[T] = value; }
-
+            get { return array[i]; }
+            set { array[i] = value; }
         }
-        
+
+        public CustomList()
+        {
+            count = 0;
+            capacity = 10;
+            array = new T[capacity];
+        }
+
+        // indexer property
+        public void Add(T item)
+        {
+            if (count < capacity ) {
+                array[count] = item;
+            }
+            else
+            {
+                capacity *= 2;
+                T[] temporaryArray = new T[capacity];
+
+                                
+
+                // fill that temporary array with the values from 'array'
+                // then add the item to add
+
+                array = temporaryArray;
+            }
+            // T[] arr = new T[5];
+        }
+            
+
+    
         
         public int ToString(int v)
         {
