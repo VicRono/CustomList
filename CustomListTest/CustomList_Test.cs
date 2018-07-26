@@ -106,10 +106,26 @@ namespace CustomListTest
             Assert.AreEqual(expected[0], result[0]);
 
         }
-        public void Iterating_Array()
+        [TestMethod]
+        public void Add_Number_4()
         {
+            int expected = 4;
+            CustomList<int> list = new CustomList<int>();
 
+            list.Add(4);
+
+            Assert.AreEqual(expected, list[0]);
         }
+        [TestMethod]
+        public void Remove_Number_4()
+        {
+            int expected = 0;
+            CustomList<int> list = new CustomList<int>() { 4 };
+
+            list.Remove(list[0]);
+
+            Assert.AreEqual(expected, list.Count);
+        } 
     }
 }
 
