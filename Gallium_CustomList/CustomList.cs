@@ -9,18 +9,11 @@ namespace Gallium_CustomList
 {
     public class CustomList<T> : IEnumerable<T>
     {
-        private object actual;
-
-        // member variables
-        int count = 0;
-        int capacity = 1;
-        T[] array;
-
-        public int Count
-        {
-            get { return count; }
-        }
-
+        private T[] array;
+        private int count;
+        private int capacity;
+        public int Count { get { return count; } }
+        public int Capacity { get; set; }
         public T this[int i]
         {
             get { return array[i]; }
@@ -32,6 +25,7 @@ namespace Gallium_CustomList
             count = 0;
             capacity = 10;
             array = new T[capacity];
+            Capacity = capacity;
         }
 
         // indexer property
