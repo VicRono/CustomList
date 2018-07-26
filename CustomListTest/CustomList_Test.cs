@@ -136,6 +136,20 @@ namespace CustomListTest
 
             Assert.AreEqual(expected, cmList1[6]);
         } 
+        [TestMethod]
+        public void Remove_Multiple_Numbers()
+        {
+            int expected = 3;
+            CustomList<int> list = new CustomList<int>() { 1, 2, 3, 4, 5, 6 };
+
+            list.Remove(1);
+            list.Remove(2);
+            list.Remove(4);
+            list.Remove(5);
+            list.Remove(6);
+
+            Assert.AreEqual(expected, list[0]);
+        }
     }
 }
 
