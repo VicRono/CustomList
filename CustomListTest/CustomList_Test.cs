@@ -125,6 +125,16 @@ namespace CustomListTest
             list.Remove(list[0]);
 
             Assert.AreEqual(expected, list.Count);
+        }
+        [TestMethod]
+        public void Zip_Numberlist_123456()
+        {
+            int expected = 1;
+            CustomList<int> cmList1 = new CustomList<int>() { 1, 3, 5, 7 };
+            CustomList<int> cmList2 = new CustomList<int>() { 2, 4, 6, 8 };
+            cmList1.Zip(cmList2);
+
+            Assert.AreEqual(expected, cmList1[6]);
         } 
     }
 }
