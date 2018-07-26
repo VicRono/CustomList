@@ -107,14 +107,35 @@ namespace Gallium_CustomList
             return isValue;
         }
 
+        public static CustomList<T> operator -(CustomList<T> cmList1, CustomList<T> cmList2)
+        {
+            CustomList<T> holderArray = new CustomList<T>();
+            bool replicate = false;
+            for (int i = 0; i < cmList2.count; i++)
+            {
+                for(int k = 0; k < cmList1.count; k++)
+                {
+                    if(cmList2[i].Equals(cmList1[k]) && !replicate)
+                    {
+                        replicate = true;
+                    }
+                    else
+                    {
+                        holderArray.Add(cmList1[k]);
+                    }
+                }
+            }
+            return holderArray;
+        }
+
         IEnumerator<T> IEnumerable<T>.GetEnumerator()
         {
-            return GetEnumarator();
+            throw new NotImplementedException();
         }
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            return GetEnumarator();
+            throw new NotImplementedException();
         }
     }
 }

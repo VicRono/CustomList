@@ -83,21 +83,27 @@ namespace CustomListTest
         public void Overloading_Plus_Operator()
         {
             
-            CustomList<int> customList = new CustomList<int>();
-            CustomList<int> cmList1 = new CustomList<int>();
-            CustomList<int> cmList2 = new CustomList<int>();
-            int expected = 1;
-            int actual;
-           
-            cmList1.Add(1);
-            cmList2.Add(2);
+            CustomList<int> expected = new CustomList<int>() { 1, 2, 3, 4, 5, 6, 7, 8 };
+            CustomList<int> cmList1 = new CustomList<int>() { 1, 2, 3, 4 };
+            CustomList<int> cmList2 = new CustomList<int>() { 5, 6, 7, 8 };
+            CustomList<int> result = new CustomList<int>();
 
-            customList = cmList1 + cmList2; // { 1, 2 }
-            actual = customList[0];
+            result = cmList1 + cmList2;
 
-            Assert.AreEqual(expected, actual);
+            Assert.AreEqual(expected[4], result[4]);
 
+        }
+        [TestMethod]
+        public void Overloading_Minus_Operator()
+        {
+            CustomList<int> expected = new CustomList<int>() { 2, 3};
+            CustomList<int> cmList1 = new CustomList<int>() { 1, 2, 3};
+            CustomList<int> cmList2 = new CustomList<int>() { 1 };
+            CustomList<int> result = new CustomList<int>();
 
+            result = cmList1 - cmList2;
+
+            Assert.AreEqual(expected[0], result[0]);
 
         }
         public void Iterating_Array()
