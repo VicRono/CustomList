@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace Gallium_CustomList
 {
-    public class CustomList<T>
+    public class CustomList<T> : IEnumerable<T>
     {
         private object actual;
 
         // member variables
-        int count;
-        int capacity;
+        int count = 0;
+        int capacity = 1;
         T[] array;
 
         public int Count
@@ -36,7 +36,7 @@ namespace Gallium_CustomList
         // indexer property
         public void Add(T item)
         {
-            if (count < capacity ) {
+            if (count < capacity) {
                 array[count] = item;
             }
             else
@@ -44,27 +44,34 @@ namespace Gallium_CustomList
                 capacity *= 2;
                 T[] temporaryArray = new T[capacity];
 
-                                
-
-                // fill that temporary array with the values from 'array'
-                // then add the item to add
+                for (int i = 0; i > capacity; i++)
+                    temporaryArray[i] = array[i];
 
                 array = temporaryArray;
             }
-            // T[] arr = new T[5];
-        }
-            
-
-    
-        
-        public int ToString(int v)
-        {
-            throw new NotImplementedException();
+            T[] arr = new T[capacity];
         }
 
-        public int Remove()
+        public override string ToString()
         {
-            throw new NotImplementedException();
+            string v = null;
+            for (int i = 0; i < count; i++)
+            {
+                Convert.ToString(array[i]);
+                v += array[i];
+            }
+            return v;
+        }
+        public int Remove(T itemToRemove)
+        {
+            T[] = NewArray;
+            bool inputPresent = false;
+            int counter = count;
+            T[] removedArray = new T[capacity];
+            for (int i = 0; i < counter; i++)
+            {
+
+            }
         }
     }
 }
