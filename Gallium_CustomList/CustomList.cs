@@ -109,12 +109,12 @@ namespace Gallium_CustomList
 
         IEnumerator<T> IEnumerable<T>.GetEnumerator()
         {
-            throw new NotImplementedException();
+            return GetEnumarator();
         }
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            throw new NotImplementedException();
+            return GetEnumarator();
         }
     }
 }
