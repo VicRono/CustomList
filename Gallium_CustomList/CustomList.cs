@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -36,20 +37,22 @@ namespace Gallium_CustomList
         // indexer property
         public void Add(T item)
         {
-            if (count < capacity) {
-                array[count] = item;
-            }
-            else
+            T[] holderArray;
+
+            if (count == capacity)
             {
-                capacity *= 2;
-                T[] temporaryArray = new T[capacity];
-
-                for (int i = 0; i > capacity; i++)
-                    temporaryArray[i] = array[i];
-
-                array = temporaryArray;
+                capacity = capacity * 2;
             }
-            T[] arr = new T[capacity];
+            holderArray = array;
+            array = new T[capacity];
+            int first = 0;
+            foreach (T element in holderArray)
+            {
+                array[first] = holderArray[first];
+                first++;
+            }
+            count++;
+            array[count - 1] = item;
         }
 
         public override string ToString()
@@ -62,16 +65,62 @@ namespace Gallium_CustomList
             }
             return v;
         }
-        public int Remove(T itemToRemove)
+
+        public IEnumerator<T> GetEnumarator()
         {
-            T[] = NewArray;
-            bool inputPresent = false;
-            int counter = count;
-            T[] removedArray = new T[capacity];
-            for (int i = 0; i < counter; i++)
+            T[] values = new T[100];
+            int head = 0;
+            for (int i = head; i >= 0; i--)
             {
+                yield return values[i];
+            }
+
+        }
+
+        public bool Remove(T value)
+        {
+            T[] holderArray;
+            bool isValue = false;
+            holderArray = array;
+            for (int i = 0; i < count; i++)
+            {
+                if (holderArray[i].Equals(value))
+                {
+                    isValue = true;
+                }
 
             }
+            if (isValue)
+            {
+                isValue = false;
+                for (int k = 0; k < count; k++)
+                {
+                    if (value.Equals(holderArray[k]))
+                    {
+                        isValue = true;
+                    }
+                    else if (!isValue)
+                    {
+                        array[k] = holderArray[k];
+                    }
+                    if (isValue)
+                    {
+                        array[k] = holderArray[k + 1];
+                    }
+                }
+            }
+            count--;
+            return isValue;
+        }
+
+        IEnumerator<T> IEnumerable<T>.GetEnumerator()
+        {
+            throw new NotImplementedException();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            throw new NotImplementedException();
         }
     }
 }
